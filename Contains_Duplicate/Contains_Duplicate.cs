@@ -1,16 +1,30 @@
 public class Solution {
     public bool ContainsDuplicate(int[] nums)
     {
-        HashSet<int> numbers = new HashSet<int>();
+        HashSet<int> seenMap = new HashSet<int>();
 
-        foreach (int num in nums)
+        foreach(var val in nums)
         {
-            if(numbers.Contains(num))
+            if(!seenMap.Contains(nums))
             {
-                return true;
+                seenMap.Add(val);
             }
-            numbers.Add(num);
+            return true;
         }
         return false;
     }
 }
+
+
+
+        // HashSet<int> numbers = new HashSet<int>();
+
+        // foreach (int num in nums)
+        // {
+        //     if(numbers.Contains(num))
+        //     {
+        //         return true;
+        //     }
+        //     numbers.Add(num);
+        // }
+        // return false;
